@@ -2,8 +2,8 @@
 vim.g.mapleader = " "
 
 -- Cursor settings
--- vim.opt.guicursor = "i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150"
-vim.opt.guicursor = ""
+vim.opt.guicursor = "i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150"
+-- vim.opt.guicursor = ""
 
 -- Line settings
 vim.opt.nu = true

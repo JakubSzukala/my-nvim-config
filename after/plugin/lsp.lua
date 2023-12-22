@@ -1,10 +1,10 @@
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({buffer = bufnr})
+lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
--- TAB Autocomplete
+-- Key mappings
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
@@ -12,6 +12,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<Tab>'] = cmp_action.tab_complete(),
     ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
   })
 })
 
@@ -31,4 +33,4 @@ require('mason-lspconfig').setup({
 })
 
 -- GDScrip LSP works from editor so it is managed separately
-require'lspconfig'.gdscript.setup{}
+require('lspconfig').gdscript.setup({})
