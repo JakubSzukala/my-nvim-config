@@ -5,7 +5,8 @@ return {
   opts_extend = { "ensure_installed" },
   opts = {
     ensure_installed = {
-      "stylua",
+      "stylua", -- TODO: Setup this
+      "lua-language-server",
       "shfmt",
       "clangd",
       "pyright"
