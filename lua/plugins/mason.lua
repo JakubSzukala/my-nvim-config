@@ -9,7 +9,8 @@ return {
       "lua-language-server",
       "shfmt",
       "clangd",
-      "pyright"
+      "pyright",
+      "rust-analyzer"
     }
   },
   -- config function will run when plugin loads. We override it here to add custom logic.
