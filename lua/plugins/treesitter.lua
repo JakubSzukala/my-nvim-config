@@ -15,6 +15,8 @@ return {
   end,
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }, -- Lazy load on these commands
   opts = {
+    sync_install = true,
+    auto_install = true,
     highlight = { enable = true },
     indent = { enable = true },
     ensure_installed = {
@@ -36,6 +38,14 @@ return {
       "vimdoc",
       "xml",
       "yaml",
+      "gdscript"
     },
-  }
+  },
+  config = function(_, opts)
+    -- We have to define config here because setup is not called
+    -- on nvim-treesitter but on nvim-treesitter.configs, see:
+    -- git@github.com:nvim-treesitter/nvim-treesitter.git
+    local configs = require("nvim-treesitter.configs")
+    configs.setup(opts)
+  end
 }
