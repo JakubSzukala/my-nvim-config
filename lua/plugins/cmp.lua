@@ -21,8 +21,15 @@ return {
 
       preselect = cmp.PreselectMode.Item,
       mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp.mapping(function(_)
-	  cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          local col = vim.fn.col('.') - 1
+          if cmp.visible() then
+	    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+          elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+            fallback()
+          else
+            cmp.complete()
+          end
         end, { "i", "c" }),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
