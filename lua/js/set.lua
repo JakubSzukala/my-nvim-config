@@ -30,8 +30,11 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
 
+-- Style
+vim.opt.signcolumn = "yes"
+vim.opt.list = true
+
 -- Misc
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
