@@ -30,6 +30,8 @@ vim.opt.backup = false
 -- Search settings
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Looks
 vim.opt.termguicolors = true

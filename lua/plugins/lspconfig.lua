@@ -113,6 +113,8 @@ return {
 
     -- Configure rust language server
     lspconfig.rust_analyzer.setup {}
+
+    lspconfig.pyright.setup {}
   end
 }
 

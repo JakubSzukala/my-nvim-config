@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set('n', 'gl', ':lua vim.diagnostic.open_float()<CR>', { noremap=true, silent=true })
   end,
 })
 
@@ -25,7 +26,8 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Telescope remaps
 vim.keymap.set("n", "<leader>pf", require("telescope.builtin").find_files)
-vim.keymap.set("n", "<leader>ps", function() require("telescope.builtin").grep_string({search = vim.fn.input("Grep > ") }) end)
+vim.keymap.set("n", "<leader>pg", require("telescope.builtin").live_grep)
+vim.keymap.set("n", "<leader>ps", require("telescope.builtin").grep_string)
 
 -- Grab and shift text in visual mode (doesn't work at the bottom of the file)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
