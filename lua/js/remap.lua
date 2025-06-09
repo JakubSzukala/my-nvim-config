@@ -21,6 +21,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- Switch to normal mode with jk
 vim.keymap.set("i", "jk", "<Esc>")
 
+vim.keymap.set("t", "jk", "<C-\\><C-n>")
+
 -- Switch to file browser
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 

@@ -10,7 +10,8 @@ return {
       "shfmt",
       "clangd",
       "pyright",
-      "rust-analyzer"
+      "rust-analyzer",
+      "zls"
     }
   },
   -- config function will run when plugin loads. We override it here to add custom logic.
