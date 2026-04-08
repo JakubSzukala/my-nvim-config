@@ -6,6 +6,9 @@
 -- Set leader character
 vim.g.mapleader = " "
 
+-- Enable copying to "+" and "*"
+vim.g.clipboard = "xclip"
+
 -- Cursor settings
 vim.opt.guicursor = "i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150"
 
@@ -14,10 +17,10 @@ vim.opt.nu = true
 vim.opt.relativenumber = false
 
 -- Indentation settings - see :h tabstop 1
-vim.opt.tabstop = 8
-vim.opt.softtabstop = 8
-vim.opt.shiftwidth = 8
-vim.opt.expandtab = false
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Line wrapping
@@ -50,18 +53,27 @@ vim.opt.updatetime = 50
 
 -- C/C++ files
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = { "*.c", "*.h", "*.cpp", "*.hpp" },
-  callback = function(_)
-    vim.opt.softtabstop = 8
-    vim.opt.shiftwidth = 8
-  end
+	pattern = { "*.c", "*.h", "*.cpp", "*.hpp" },
+	callback = function(_)
+		vim.opt.softtabstop = 4
+		vim.opt.shiftwidth = 4
+	end,
 })
 
 -- Lua files
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = { "*.lua" },
-  callback = function(_)
-    vim.opt.softtabstop = 2
-    vim.opt.shiftwidth = 2
-  end
+	pattern = { "*.lua" },
+	callback = function(_)
+		vim.opt.softtabstop = 2
+		vim.opt.shiftwidth = 2
+	end,
+})
+
+-- JS/TS files
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.js", "*.ts" },
+	callback = function(_)
+		vim.opt.softtabstop = 2
+		vim.opt.shiftwidth = 2
+	end,
 })
