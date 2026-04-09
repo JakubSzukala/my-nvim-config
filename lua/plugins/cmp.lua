@@ -37,13 +37,13 @@ return {
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
 				["("] = cmp.mapping(function(fallback)
-					vim.api.nvim_put({"()"}, "c", true, false)
+					vim.api.nvim_put({ "()" }, "c", true, false)
 				end, { "i" }),
 				["{"] = cmp.mapping(function(fallback)
-					vim.api.nvim_put({"{}"}, "c", true, false)
+					vim.api.nvim_put({ "{}" }, "c", true, false)
 				end, { "i" }),
 				["["] = cmp.mapping(function(fallback)
-					vim.api.nvim_put({"[]"}, "c", true, false)
+					vim.api.nvim_put({ "[]" }, "c", true, false)
 				end, { "i" }),
 			}),
 

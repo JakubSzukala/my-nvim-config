@@ -60,12 +60,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	end,
 })
 
--- Lua files
+-- Lua files - adhere to stylua style
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.lua" },
 	callback = function(_)
-		vim.opt.softtabstop = 2
-		vim.opt.shiftwidth = 2
+		vim.opt.expandtab = false
 	end,
 })
 
