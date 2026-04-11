@@ -36,15 +36,10 @@ return {
 				["<S-Tab>"] = cmp.mapping.select_prev_item(),
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
-				["("] = cmp.mapping(function(fallback)
-					vim.api.nvim_put({ "()" }, "c", true, false)
-				end, { "i" }),
-				["{"] = cmp.mapping(function(fallback)
-					vim.api.nvim_put({ "{}" }, "c", true, false)
-				end, { "i" }),
-				["["] = cmp.mapping(function(fallback)
-					vim.api.nvim_put({ "[]" }, "c", true, false)
-				end, { "i" }),
+				-- Note: This was primitive way of adding autopairs now I use plugin for that
+				--["("] = cmp.mapping(function(fallback)
+				--	vim.api.nvim_put({ "()" }, "c", true, false)
+				--end, { "i" }),
 			}),
 
 			-- Completion sources - https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
