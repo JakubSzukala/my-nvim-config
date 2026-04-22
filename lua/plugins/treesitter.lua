@@ -4,15 +4,6 @@ return {
 	build = ":TSUpdate", -- Together with treesitter, update parsers
 	event = { "VeryLazy" }, -- Load after VimEnter (startup stuff, loading init.lua, creating windows)
 	lazy = vim.fn.argc(-1) == 0, -- Don't lazy load when we open file with vim from command line
-	init = function(plugin)
-		-- PERF: add nvim-treesitter queries to the runtimepath and it's custom query predicates early
-		-- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
-		-- no longer trigger the **nvim-treesitter** module to be loaded in time.
-		-- Luckily, the only things that those plugins need are the custom queries, which we make available
-		-- during startup. Source: http://www.lazyvim.org/plugins/treesitter
-		require("lazy.core.loader").add_to_rtp(plugin)
-		require("nvim-treesitter.query_predicates")
-	end,
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }, -- Lazy load on these commands
 	opts = {
 		sync_install = true,
@@ -30,7 +21,6 @@ return {
 			"luap",
 			"markdown",
 			"markdown_inline",
-			"printf",
 			"python",
 			"regex",
 			"toml",
@@ -42,10 +32,7 @@ return {
 		},
 	},
 	config = function(_, opts)
-		-- We have to define config here because setup is not called
-		-- on nvim-treesitter but on nvim-treesitter.configs, see:
-		-- git@github.com:nvim-treesitter/nvim-treesitter.git
-		local configs = require("nvim-treesitter.configs")
-		configs.setup(opts)
+		local treesitter = require("nvim-treesitter")
+		treesitter.setup(opts)
 	end,
 }
