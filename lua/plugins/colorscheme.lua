@@ -10,7 +10,7 @@ return {
 			--vim.cmd([[colorscheme solarized]])
 			vim.cmd([[colorscheme tokyonight]])
 			--vim.opt.background = "light"
-			--vim.opt.background = "dark"
+			vim.opt.background = "dark"
 		end,
 	},
 }

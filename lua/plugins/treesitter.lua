@@ -8,6 +8,7 @@ return {
 	opts = {
 		sync_install = true,
 		auto_install = true,
+		prefer_git = true,
 		highlight = { enable = true },
 		indent = { enable = true },
 		ensure_installed = {
@@ -29,6 +30,7 @@ return {
 			"xml",
 			"yaml",
 			"gdscript",
+			"go"
 		},
 	},
 	config = function(_, opts)

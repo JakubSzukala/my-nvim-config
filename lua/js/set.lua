@@ -55,8 +55,8 @@ vim.opt.updatetime = 50
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.c", "*.h", "*.cpp", "*.hpp" },
 	callback = function(_)
-		vim.opt.softtabstop = 4
-		vim.opt.shiftwidth = 4
+		vim.opt.softtabstop = 2
+		vim.opt.shiftwidth = 2
 	end,
 })
 

@@ -18,8 +18,11 @@ return {
 			--completion = {
 			--completeopt = "menu,menuone,noinsert",
 			--},
+			completion = {
+				completeopt = "menu,menuone,noselect",
+			},
+			preselect = cmp.PreselectMode.None,
 
-			preselect = cmp.PreselectMode.Item,
 			mapping = cmp.mapping.preset.insert({
 				["<Tab>"] = cmp.mapping(function(fallback)
 					local cursor_col = vim.fn.col(".") - 1
